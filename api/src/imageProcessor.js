@@ -19,7 +19,7 @@ var imageProcessor = function(filename) {
 	return new Promise((resolve, reject) => {
 		if(isMainThread) {
 			try {
-				const resizeWorker = Worker(pathToResizeWorker, {
+				const resizeWorker = new Worker(pathToResizeWorker, {
 					workerData: {
 						source: sourcePath,
 						destination: resizedDestination
@@ -40,7 +40,7 @@ var imageProcessor = function(filename) {
 					}
 				});
 
-				const monochromeWorker = Worker(pathToMonochromeWorker, {
+				const monochromeWorker = new Worker(pathToMonochromeWorker, {
 					workerData: {
 						source: sourcePath,
 						destination: monochromeDestination
