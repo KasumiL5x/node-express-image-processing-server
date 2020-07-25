@@ -64,7 +64,7 @@ var imageProcessor = function(filename) {
 				reject(error);
 			}
 		} else {
-			reject(new Error("Not on main thread"));
+			reject(new Error("not on main thread"));
 		}
 	});
 };
